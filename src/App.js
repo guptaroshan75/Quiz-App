@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import QuizPages from './pages/QuizPages';
+import Navbar from "./component/Navbar";
+import { Container } from "@mui/material";
+import { Route, Routes } from "react-router-dom";
+import Login from "./pages/Login";
+import Footer from "./component/Footer";
+import Register from './pages/Register';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Navbar />
+      <Container maxWidth='lg' >
+        <Routes>
+          <Route path='/' element={<QuizPages />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+        </Routes>
+      </Container>
+      <Footer />
+    </>
+  )
 }
 
 export default App;
